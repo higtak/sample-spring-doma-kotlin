@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sample
+    username: app
+    password: P@ssw0rd!
+    name: sample
+    hikari:
+      auto-commit: false
+doma:
+  dialect: postgres
+  sql-file-repository: no_cache
+  naming: snake_lower_case

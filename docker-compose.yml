@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  sampledb:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: P@ssw0rd!
+      POSTGRES_DB: sample
+    volumes:
+      - ./docker/sampledb/init:/docker-entrypoint-initdb.d

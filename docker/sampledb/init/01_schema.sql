@@ -1,0 +1,21 @@
+CREATE TABLE companies
+(
+    id BIGSERIAL,
+    name VARCHAR(64) NOT NULL,
+    location TEXT NOT NULL,
+    created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE users
+(
+    id BIGSERIAL,
+    username VARCHAR(32) NOT NULL UNIQUE,
+    full_name VARCHAR(64) NOT NULL,
+    company_id BIGINT,
+    created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (company_id) REFERENCES companies (id)
+);
